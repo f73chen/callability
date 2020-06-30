@@ -99,8 +99,8 @@ task calculateCallability {
   TOTAL="$(zcat -f ~{intervalFile} | awk -F'\t' 'BEGIN{SUM=0}{SUM+=$3-$2} END{print SUM}')"
 
   python3 <<CODE
-  total_count = int("${TOTAL}")
-  pass_count = int("${PASS}")
+  total_count = int(float("${TOTAL}"))
+  pass_count = int(float("${PASS}"))
   fail_count = total_count - pass_count
   if pass_count == 0 and fail_count == 0:
     callability = 0
