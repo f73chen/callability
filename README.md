@@ -13,6 +13,17 @@ Workflow to calculate the callability of a matched tumour sample, where callabil
 
 ## Usage
 
+### Dockstore
+Make a runtime JSON template and fill in desired inputs, outputs, and other parameters
+```
+dockstore workflow convert entry2json --entry github.com/f73chen/callability/Callability:master > Dockstore.json
+vim Dockstore.json
+```
+Run locally with the Dockstore CLI
+```
+dockstore workflow launch --entry github.com/f73chen/callability/Callability:master --json Dockstore.json
+```
+
 ### Cromwell
 ```
 java -jar cromwell.jar run callability.wdl --inputs inputs.json
