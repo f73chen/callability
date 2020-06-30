@@ -20,4 +20,15 @@ USER ubuntu
 # copy the setup file to load the modules at startup
 COPY .bashrc /home/ubuntu/.bashrc
 
+# set environment variables
+ENV BEDTOOLS_ROOT="/modules/gsi/modulator/sw/Ubuntu18.04/bedtools-2.27"
+ENV MOSDEPTH_ROOT="/modules/gsi/modulator/sw/Ubuntu18.04/mosdepth-0.2.9"
+ENV PYTHON_ROOT="/modules/gsi/modulator/sw/Ubuntu18.04/python-3.7"
+
+ENV PATH="/modules/gsi/modulator/sw/Ubuntu18.04/python-3.7/bin:/modules/gsi/modulator/sw/Ubuntu18.04/mosdepth-0.2.9/bin:/modules/gsi/modulator/sw/Ubuntu18.04/bedtools-2.27/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ENV MANPATH="/modules/gsi/modulator/sw/Ubuntu18.04/python-3.7/share/man"
+ENV LD_LIBRARY_PATH="/modules/gsi/modulator/sw/Ubuntu18.04/python-3.7/lib"
+ENV PKG_CONFIG_PATH="/modules/gsi/modulator/sw/Ubuntu18.04/python-3.7/lib/pkgconfig"
+ENV PYTHONPATH="/modules/gsi/modulator/sw/Ubuntu18.04/python-3.7/lib/python3.7/site-packages"
+
 CMD /bin/bash

@@ -4,15 +4,11 @@ workflow test_location {
 
 task find_tools {
     command {
-        ls $STAR_FUSION_ROOT
+        ls $BEDTOOLS_ROOT
         echo "@@@@@@@@@@@@@@@@"
-        ls $PERL_ROOT
+        ls $MOSDEPTH_ROOT
         echo "@@@@@@@@@@@@@@@@"
-        ls $STAR_ROOT
-        echo "@@@@@@@@@@@@@@@@"
-        ls $SAMTOOLS_ROOT
-        echo "@@@@@@@@@@@@@@@@"
-        ls $HTSLIB_ROOT
+        ls $PYTHON_ROOT
         echo "@@@@@@@@@@@@@@@@"
 
         echo $PATH
@@ -21,16 +17,16 @@ task find_tools {
         echo "################"
         echo $LD_LIBRARY_PATH
         echo "################"
-        echo $PERL5LIB
-        echo "################"
         echo $PKG_CONFIG_PATH
+        echo "################"
+        echo $PYTHONPATH
         echo "################"
     }
     output{
         String message = read_string(stdout())
     }
     runtime {
-        docker: "g3chen/starfusion:2.0"
-        modules: "star-fusion/1.8.1"
+        docker: "g3chen/callability@sha256:efd5e8c9b50b5717eb30050321312220b32d84c0e79f365d25cfc059593f95ae"
+        modules: "mosdepth/0.2.9 bedtools/2.27 python/3.7"
     }
 }
